@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hot Wheels Garage</title>
+    <link rel="icon" type="assets/icon.ico" href="assets/icon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-wrapper">
+        <img src="assets/Community_Logo.png" alt="Website Logo" class="site-logo">
+        </div>
+        <h1>🔥 My Hot Wheels Garage</h1>
+        <p>Manage and view my current inventory</p>
+        <input type="text" id="carSearch" placeholder="Search for a model..." onkeyup="filterCars()">
+    </header>
+
+    <main class="container" id="carGrid">
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Fast And Furious TOKYO DRIFT</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets\car-photos\Tokyo Drift.jpeg" alt="Tokyo Drift" class="car-image">
+            <h4>Hot Wheels SILVER SERIES | Fast And Furious TOKYO DRIFT | 1970 Monte Carlo | 3/5 | HNR88</h4>
+            <p class="description">The 1970 Monte Carlo captures the raw, gritty American muscle from the opening scene of The Fast and the Furious: Tokyo Drift. Finished in a screen-accurate primer beige, this casting replicates Sean Boswell's first ride that he used to race against the Viper. With its heavy stance, cowl induction hood, and blacked-out wheels, this model represents the brute force of a classic V8 street brawler before the franchise moved to the drifting mountains of Japan.</p>
+            <p class="price">₹ 1699</p>
+        </div>
+
+        <div class="car-card sold">
+            <div class="card-header">
+                <h3>Hot Wheels Ford RS200 Super Treasure Hunt</h3>
+                <span class="status-tag">Sold</span>
+            </div>
+            <img src="assets\car-photos\FordRS200 Super.jpg" alt="FordRS200 Super" class="car-image">
+            <h4>Hot Wheels SUPER TREASURE HUNT | HW PEAK PURSUIT | Ford RS200 | 9/10 | 247/250</h4>
+            <p class="description">The Hot Wheels Ford RS200 Super Treasure Hunt is a standout release from the 2025 Peak Pursuit series. It features the iconic Gulf Racing livery with Spectraflame powder blue paint and classic orange stripes. Equipped with Real Riders rubber tires on orange 10-spoke rims and marked with the special "TH" symbol, this premium casting pays homage to the legendary Group B rally car.</p>
+            <p class="price">₹ 2999</p>
+        </div>
+
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Ferrari SF90 Stradale</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets\car-photos\Ferrari sf90 grey.jpg" alt="Ferrari sf90 grey" class="car-image">
+            <h4>Hot Wheels HW EXOTICS | FACTORY FRESH | Ferrari SF90 Stradale | 1/5 | GRG90</h4>
+            <p class="description">The Ferrari SF90 Stradale in grey captures the aggressive elegance of Ferrari’s first series-production Plug-in Hybrid (PHEV). This casting highlights the supercar's futuristic aerodynamics, low stance, and the massive 1,000-horsepower powertrain design. With its sleek "Grigio" finish and detailed rear diffuser, this model is a sophisticated tribute to the next generation of the Prancing Horse.</p>
+            <p class="price">₹ 499</p>
+        </div>
+
+
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Hot Wheels Bugatti Bolide</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets\car-photos\Bugatti Bolide.jpg" alt="Bugatti Bolide" class="car-image">
+            <h4>Hot Wheels HW EXOTICS | 2024 MAINLINE | Bugatti Bolide | 3/10 | HTF08</h4>
+            <p class="description">The Hot Wheels Bugatti Bolide in "Carbon Red" and black embodies the raw power of Bugatti’s track-only hypercar. This casting captures the extreme aerodynamics of the real vehicle, featuring the signature X-shaped headlights and taillights, a massive rear diffuser, and a simulated 8.0L W16 engine visible at the rear. With its aggressive stance and smoke-tinted canopy, this model represents the pinnacle of lightweight engineering and speed.</p>
+            <p class="price">₹ 649</p>
+        </div>
+
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Hot Wheels McLaren F1</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets\car-photos\Mclaren F1.jpg" alt="Mclaren F1" class="car-image">
+            <h4>Hot Wheels HW: THE '90s | 2024 MAINLINE | McLaren F1 | 9/10 | HTB11</h4>
+            <p class="description">The Hot Wheels McLaren F1 in "Grand Prix Red" is a vibrant tribute to the ultimate 1990s hypercar, released as part of the HW: The '90s mini-collection. This casting faithfully replicates the revolutionary design of Gordon Murray, including the iconic central driving position and aerodynamic silhouette. With detailed headlights and taillights contrasting against the bold red finish, this model celebrates the legacy of the naturally aspirated legend that held the world speed record for over a decade.</p>
+            <p class="price">₹ 499</p>
+        </div>
+
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
