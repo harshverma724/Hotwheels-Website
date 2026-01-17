@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Diecast Network</title>
+    <title>The Diecase Network</title>
     <link rel="icon" type="assets/icon.ico" href="assets/icon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,11 +11,44 @@
 
     <header>
         <div class="logo-wrapper">
-        <img src="assets/Community_Logo.png" alt="Website Logo" class="site-logo">
+            <img src="assets/Community_Logo.png" alt="Website Logo" class="site-logo">
         </div>
-        <h1>🔥 The Diecast Network 🔥</h1>
-        <p>Explore our current inventory</p>
+        <h1>🔥 The Diecase Network 🔥</h1>
+        
         <input type="text" id="carSearch" placeholder="Search for a model..." onkeyup="filterCars()">
+
+        <div class="header-community">
+            <div class="header-qr">
+                <a href="https://chat.whatsapp.com/JdMbZ9Q5njdDvtfMLm1ceY" target="_blank">
+                    <img src="assets/Whatsapp QR.jpg" alt="WA">
+                </a>
+                <span>WhatsApp</span>
+            </div>
+            <div class="header-qr">
+                <a href="https://www.instagram.com/the.diecast.network?igsh=ZW52Y3E0OTMzNHJ3" target="_blank">
+                    <img src="assets/Instagram QR.jpg" alt="IG">
+                </a>
+                <span>Instagram</span>
+            </div>
+        </div>
+
+        <div class="header-community">
+            <button id="cart-btn" onclick="toggleCart()">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </button>
+        </div>
+
+        <div id="cart-drawer" class="cart-drawer">
+            <div class="cart-header">
+                <h2>Your Garage Cart</h2>
+                <button onclick="toggleCart()">Close ×</button>
+            </div>
+            <div id="cart-items"></div>
+            <div class="cart-footer">
+                <h3>Total: <span id="cart-total">₹0</span></h3>
+                <button class="checkout-btn" onclick="checkoutWhatsApp()">Inquire via WhatsApp</button>
+            </div>
+        </div>
     </header>
 
     <main class="container" id="carGrid">
@@ -26,8 +59,11 @@
             </div>
             <img src="assets\car-photos\Tokyo Drift.jpeg" alt="Tokyo Drift" class="car-image">
             <h4>Hot Wheels SILVER SERIES | Fast And Furious TOKYO DRIFT | 1970 Monte Carlo | 3/5 | HNR88</h4>
-            <p class="description">The 1970 Monte Carlo captures the raw, gritty American muscle from the opening scene of The Fast and the Furious: Tokyo Drift. Finished in a screen-accurate primer beige, this casting replicates Sean Boswell's first ride that he used to race against the Viper. With its heavy stance, cowl induction hood, and blacked-out wheels, this model represents the brute force of a classic V8 street brawler before the franchise moved to the drifting mountains of Japan.</p>
-            <p class="price">₹ 1699</p>
+            <p class="description">Classic V8 street brawler from the opening scene of Tokyo Drift.</p>
+            <div class="price-container">
+                <p class="price">₹ 1699</p>
+                <button class="add-btn" id="btn-tokyo" onclick="handleCartClick('btn-tokyo', 'Fast And Furious TOKYO DRIFT', 1699, 'available')">Add to Cart</button>
+            </div>
         </div>
 
         <div class="car-card sold">
@@ -36,9 +72,12 @@
                 <span class="status-tag">Sold</span>
             </div>
             <img src="assets\car-photos\FordRS200 Super.jpg" alt="FordRS200 Super" class="car-image">
-            <h4>Hot Wheels SUPER TREASURE HUNT | HW PEAK PURSUIT | Ford RS200 | 9/10 | 247/250</h4>
-            <p class="description">The Hot Wheels Ford RS200 Super Treasure Hunt is a standout release from the 2025 Peak Pursuit series. It features the iconic Gulf Racing livery with Spectraflame powder blue paint and classic orange stripes. Equipped with Real Riders rubber tires on orange 10-spoke rims and marked with the special "TH" symbol, this premium casting pays homage to the legendary Group B rally car.</p>
-            <p class="price">₹ 2999</p>
+            <h4>Hot Wheels SUPER TREASURE HUNT | HW PEAK PURSUIT | Ford RS200</h4>
+            <p class="description">Iconic Gulf Racing livery with Spectraflame paint.</p>
+            <div class="price-container">
+                <p class="price">₹ 2999</p>
+                <button class="add-btn disabled" id="btn-ford" onclick="handleCartClick('btn-ford', 'Hot Wheels Ford RS200 Super Treasure Hunt', 2999, 'sold')">Sold</button>
+            </div>
         </div>
 
         <div class="car-card available">
@@ -47,11 +86,13 @@
                 <span class="status-tag">Available</span>
             </div>
             <img src="assets\car-photos\Ferrari sf90 grey.jpg" alt="Ferrari sf90 grey" class="car-image">
-            <h4>Hot Wheels HW EXOTICS | FACTORY FRESH | Ferrari SF90 Stradale | 1/5 | GRG90</h4>
-            <p class="description">The Ferrari SF90 Stradale in grey captures the aggressive elegance of Ferrari’s first series-production Plug-in Hybrid (PHEV). This casting highlights the supercar's futuristic aerodynamics, low stance, and the massive 1,000-horsepower powertrain design. With its sleek "Grigio" finish and detailed rear diffuser, this model is a sophisticated tribute to the next generation of the Prancing Horse.</p>
-            <p class="price">₹ 499</p>
+            <h4>Hot Wheels HW EXOTICS | Ferrari SF90 Stradale | 1/5</h4>
+            <p class="description">Futuristic aerodynamics and high-performance hybrid design.</p>
+            <div class="price-container">
+                <p class="price">₹ 399</p>
+                <button class="add-btn" id="btn-ferrari" onclick="handleCartClick('btn-ferrari', 'Ferrari SF90 Stradale', 399, 'available')">Add to Cart</button>
+            </div>
         </div>
-
 
         <div class="car-card available">
             <div class="card-header">
@@ -59,9 +100,12 @@
                 <span class="status-tag">Available</span>
             </div>
             <img src="assets\car-photos\Bugatti Bolide.jpg" alt="Bugatti Bolide" class="car-image">
-            <h4>Hot Wheels HW EXOTICS | 2024 MAINLINE | Bugatti Bolide | 3/10 | HTF08</h4>
-            <p class="description">The Hot Wheels Bugatti Bolide in "Carbon Red" and black embodies the raw power of Bugatti’s track-only hypercar. This casting captures the extreme aerodynamics of the real vehicle, featuring the signature X-shaped headlights and taillights, a massive rear diffuser, and a simulated 8.0L W16 engine visible at the rear. With its aggressive stance and smoke-tinted canopy, this model represents the pinnacle of lightweight engineering and speed.</p>
-            <p class="price">₹ 649</p>
+            <h4>Hot Wheels HW EXOTICS | Bugatti Bolide | 3/10</h4>
+            <p class="description">Extreme track-only hypercar in Carbon Red.</p>
+            <div class="price-container">
+                <p class="price">₹ 649</p>
+                <button class="add-btn" id="btn-bugatti" onclick="handleCartClick('btn-bugatti', 'Hot Wheels Bugatti Bolide', 649, 'available')">Add to Cart</button>
+            </div>
         </div>
 
         <div class="car-card available">
@@ -70,15 +114,59 @@
                 <span class="status-tag">Available</span>
             </div>
             <img src="assets\car-photos\Mclaren F1.jpg" alt="Mclaren F1" class="car-image">
-            <h4>Hot Wheels HW: THE '90s | 2024 MAINLINE | McLaren F1 | 9/10 | HTB11</h4>
-            <p class="description">The Hot Wheels McLaren F1 in "Grand Prix Red" is a vibrant tribute to the ultimate 1990s hypercar, released as part of the HW: The '90s mini-collection. This casting faithfully replicates the revolutionary design of Gordon Murray, including the iconic central driving position and aerodynamic silhouette. With detailed headlights and taillights contrasting against the bold red finish, this model celebrates the legacy of the naturally aspirated legend that held the world speed record for over a decade.</p>
-            <p class="price">₹ 499</p>
+            <h4>Hot Wheels HW: THE '90s | McLaren F1 | 9/10</h4>
+            <p class="description">Vibrant tribute to the ultimate naturally aspirated 90s legend.</p>
+            <div class="price-container">
+                <p class="price">₹ 449</p>
+                <button class="add-btn" id="btn-mclaren" onclick="handleCartClick('btn-mclaren', 'Hot Wheels McLaren F1', 449, 'available')">Add to Cart</button>
+            </div>
         </div>
 
+
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Bburago FERRARI DAYTONA SP3</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets/car-photos/Bburago FERRARI DAYTONA SP3.jpg" alt="Bburago FERRARI DAYTONA" class="car-image">
+            <h4>Bburago FERRARI | RACE & PLAY | Ferrari Daytona SP3 | Icona Series | 18-56000</h4>
+            <p class="description">The Bburago Ferrari Daytona SP3 captures the breathtaking design of Ferrari's ultra-exclusive "Icona" series.</p>
+            <div class="price-container">
+                <p class="price">₹ 599</p>
+                <button class="add-btn" id="btn-DAYTONA" onclick="handleCartClick('btn-DAYTONA', 'Bburago FERRARI DAYTONA SP3 RED', 599, 'available')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Hot Wheels PREMIUM Koenigsegg CCXR</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets/car-photos/Koenigsegg CCXR.jpg" alt="Koenigsegg CCXR" class="car-image">
+            <h4>Hot Wheels PREMIUM | Fast & Furious | Koenigsegg CCXR | 3/5 | HNW46</h4>
+            <p class="description">The Koenigsegg CCXR brings the multi-million dollar exotic flair from Fast Five to your collection.</p>
+            <div class="price-container">
+                <p class="price">₹ 799</p>
+                <button class="add-btn" id="btn-Koenigsegg CCXR" onclick="handleCartClick('btn-Koenigsegg CCXR', 'Koenigsegg CCXR', 799, 'available')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Hot Wheels Volkswagen Beetle (Bumblebee)</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets/car-photos/Bumble Bee.jpg" alt="Volkswagen Beetle" class="car-image">
+            <h4>Hot Wheels HW SCREEN TIME | TRANSFORMERS | Volkswagen Beetle | 9/10 | 186/250</h4>
+            <p class="description">The Volkswagen Beetle "Bumblebee" brings the beloved Autobot scout to the 1:64 scale world in his classic Generation 1 alt-mode.</p>
+            <div class="price-container">
+                <p class="price">₹ 289</p>
+                <button class="add-btn" id="btn-Volkswagen Beetle" onclick="handleCartClick('btn-Volkswagen Beetle', 'Volkswagen Beetle', 289, 'available')">Add to Cart</button>
+            </div>
+        </div>
 
     </main>
 
     <script src="script.js"></script>
 </body>
-
 </html>
