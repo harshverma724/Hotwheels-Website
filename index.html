@@ -13,7 +13,7 @@
         <div class="logo-wrapper">
             <img src="assets/Community_Logo.png" alt="Website Logo" class="site-logo">
         </div>
-        <h1>🔥 The Diecast Network 🔥</h1>
+        <h1>The Diecast Network</h1>
         
         <input type="text" id="carSearch" placeholder="Search for a model..." onkeyup="filterCars()">
 
@@ -66,6 +66,34 @@
             </div>
         </div>
 
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Hot Wheels NISSAN 350Z CUSTOM</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets/car-photos/NISSAN 350Z CUSTOM PERSONNALISE.jpeg" alt="NISSAN 350Z CUSTOM PERSONNALISE" class="car-image">
+            <h4>Hot Wheels SILVER SERIES | Fast & Furious TOKYO DRIFT | Nissan 350Z Custom | 1/5 | HNR88</h4>
+            <p class="description">Driven by the 'Drift King' in Tokyo Drift, this Nissan 350Z Custom is part of the 25th Anniversary Silver Series. Featuring the iconic VeilSide Version 3 widebody kit, high rear wing, and detailed dark finish, it perfectly captures the menacing style of the movie's villain.</p>
+            <div class="price-container">
+                <p class="price">₹ 429</p>
+                <button class="add-btn" id="btn-NISSAN 350Z CUSTOM PERSONNALISE" onclick="handleCartClick('btn-NISSAN 350Z CUSTOM PERSONNALISE', 'NISSAN 350Z CUSTOM PERSONNALISE', 429, 'available')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="car-card available">
+            <div class="card-header">
+                <h3>Hot Wheels Mazda RX-7</h3>
+                <span class="status-tag">Available</span>
+            </div>
+            <img src="assets/car-photos/Mazda RX7.jpeg" alt="NISSAN 350Z CUSTOM PERSONNALISE" class="car-image">
+            <h4>Hot Wheels HW J-IMPORTS | 2026 MAINLINE | Mazda RX-7 | 2/10 | 61/250</h4>
+            <p class="description">Part of the 2026 HW J-Imports series, this Metalflake Purple Mazda RX-7 sports a vibrant 'Spring' livery with unique rabbit graphics. It celebrates the first-generation rotary icon by blending classic 80s lines with a bold modern JDM aesthetic.</p>
+            <div class="price-container">
+                <p class="price">₹ 279</p>
+                <button class="add-btn" id="btn-Mazda RX-7" onclick="handleCartClick('btn-Mazda RX-7', 'Mazda RX-7', 279, 'available')">Add to Cart</button>
+            </div>
+        </div>
+
         <div class="car-card sold">
             <div class="card-header">
                 <h3>Hot Wheels Ford RS200 Super Treasure Hunt</h3>
@@ -82,43 +110,57 @@
 
         <div class="car-card available">
             <div class="card-header">
-                <h3>Hot Wheels Ferrari SF90 Stradale</h3>
+                <h3>Hot Wheels Ford RS200</h3>
                 <span class="status-tag">Available</span>
             </div>
+            <img src="assets/car-photos/Ford RS200.jpeg" alt="FordRS200" class="car-image">
+            <h4>Hot Wheels HW PEAK PURSUIT | 2025 MAINLINE | Ford RS200 | 9/10 | 247/250</h4>
+            <p class="description">The Hot Wheels Ford RS200 in "Gulf Blue" is a standout release from the 2025 Peak Pursuit series. This casting faithfully reproduces the Group B rally legend with its iconic mid-engine design and aggressive aerodynamic bodywork.</p>
+            <div class="price-container">
+                <p class="price">₹ 279</p>
+                <button class="add-btn" id="btn-ford rs200" onclick="handleCartClick('btn-ford rs200', 'Hot Wheels Ford RS200', 279, 'available')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="car-card sold">
+            <div class="card-header">
+                <h3>Hot Wheels Ferrari SF90 Stradale</h3>
+                <span class="status-tag">Sold</span>
+            </div>
             <img src="assets\car-photos\Ferrari sf90 grey.jpg" alt="Ferrari sf90 grey" class="car-image">
-            <h4>Hot Wheels FACTORY FRESH | 2025 MAINLINE | Ferrari SF90 Stradale | 5/5 | HYW34</h4>
+            <h4>Hot Wheels HW EXOTICS | Ferrari SF90 Stradale | 1/5</h4>
             <p class="description">The Ferrari SF90 Stradale marks the triumphant return of Ferrari to the Hot Wheels mainline after a decade-long absence. This casting faithfully replicates Ferrari's first series-production Plug-in Hybrid Electric Vehicle (PHEV), celebrating the Scuderia's 90th anniversary.</p>
             <div class="price-container">
                 <p class="price">₹ 399</p>
-                <button class="add-btn" id="btn-ferrari" onclick="handleCartClick('btn-ferrari', 'Ferrari SF90 Stradale', 399, 'available')">Add to Cart</button>
+                <button class="add-btn disabled" id="btn-ferrari" onclick="handleCartClick('btn-ferrari', 'Ferrari SF90 Stradale', 399, 'sold')">Sold</button>
             </div>
         </div>
 
-        <div class="car-card available">
+        <div class="car-card sold">
             <div class="card-header">
                 <h3>Hot Wheels Bugatti Bolide</h3>
-                <span class="status-tag">Available</span>
+                <span class="status-tag">Sold</span>
             </div>
             <img src="assets\car-photos\Bugatti Bolide.jpg" alt="Bugatti Bolide" class="car-image">
             <h4>Hot Wheels HW EXOTICS | Bugatti Bolide | 3/10</h4>
-            <p class="description">Extreme track-only hypercar in Carbon Red.</p>
+            <p class="description">Capturing the ultimate W16 track-only hypercar, this Bugatti Bolide features radical aerodynamics, a massive roof scoop, and signature X-shaped lights. It serves as a perfect miniature tribute to Bugatti's 'Form Follows Performance' philosophy.</p>
             <div class="price-container">
                 <p class="price">₹ 649</p>
-                <button class="add-btn" id="btn-bugatti" onclick="handleCartClick('btn-bugatti', 'Hot Wheels Bugatti Bolide', 649, 'available')">Add to Cart</button>
+                <button class="add-btn disabled" id="btn-bugatti" onclick="handleCartClick('btn-bugatti', 'Hot Wheels Bugatti Bolide', 649, 'sold')">Sold</button>
             </div>
         </div>
 
-        <div class="car-card available">
+        <div class="car-card sold">
             <div class="card-header">
                 <h3>Hot Wheels McLaren F1</h3>
-                <span class="status-tag">Available</span>
+                <span class="status-tag">Sold</span>
             </div>
             <img src="assets\car-photos\Mclaren F1.jpg" alt="Mclaren F1" class="car-image">
             <h4>Hot Wheels HW: THE '90s | McLaren F1 | 9/10</h4>
-            <p class="description">Vibrant tribute to the ultimate naturally aspirated 90s legend.</p>
+            <p class="description">Finished in Grand Prix Red, this casting honors the ultimate 1990s hypercar with its iconic central driving position and sleek aerodynamic silhouette. Part of the HW: The '90s series, it celebrates the record-breaking engineering masterpiece designed by Gordon Murray.</p>
             <div class="price-container">
                 <p class="price">₹ 449</p>
-                <button class="add-btn" id="btn-mclaren" onclick="handleCartClick('btn-mclaren', 'Hot Wheels McLaren F1', 449, 'available')">Add to Cart</button>
+                <button class="add-btn disabled" id="btn-mclaren" onclick="handleCartClick('btn-mclaren', 'Hot Wheels McLaren F1', 449, 'sold')">Sold</button>
             </div>
         </div>
 
@@ -165,9 +207,10 @@
             </div>
         </div>
 
+        
+
     </main>
 
     <script src="script.js"></script>
 </body>
 </html>
-
