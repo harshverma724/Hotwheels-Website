@@ -324,6 +324,48 @@ header {
     transform: scale(1.02);
 }
 
+/* Product Page Layout */
+.product-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.product-image-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-image-box img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.product-info-box {
+    flex: 1.2;
+    min-width: 300px;
+    text-align: left;
+}
+
+.product-price-tag {
+    font-size: 2.2rem;
+    color: #B12704; /* Amazon-style red for price */
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .product-layout { flex-direction: column; padding: 20px; }
+}
+
 .available { border-top-color: #27ae60; }
 .available .status-tag { background: #e8f8f0; color: #27ae60; }
 
