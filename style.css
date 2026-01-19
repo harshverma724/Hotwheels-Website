@@ -259,6 +259,71 @@ header {
     font-weight: bold;
 }
 
+/* Existing styles remain as provided in your file... */
+
+/* --- Lightbox / Zoom Feature --- */
+.lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 2000; 
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: zoom-out;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 85%;
+    max-width: 900px;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 3px solid white;
+    border-radius: 10px;
+    animation: zoomAnimation 0.3s ease;
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes zoomAnimation {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* Make images look interactive */
+.car-image {
+    cursor: zoom-in;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.car-image:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
 .available { border-top-color: #27ae60; }
 .available .status-tag { background: #e8f8f0; color: #27ae60; }
 
