@@ -10,7 +10,6 @@ function filterCars() {
 
     for (let i = 0; i < cards.length; i++) {
         const title = cards[i].querySelector('h3').innerText.toLowerCase();
-        // Also check h4 for better searching
         const details = cards[i].querySelector('h4') ? cards[i].querySelector('h4').innerText.toLowerCase() : "";
         
         if (title.includes(searchTerm) || details.includes(searchTerm)) {
@@ -30,8 +29,33 @@ function toggleCart() {
 }
 
 /**
- * Handles the main button click. 
- * Checks if available and then proceeds to add.
+ * Image Zoom / Lightbox Functions
+ */
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById("image-lightbox");
+    const zoomedImg = document.getElementById("zoomed-img");
+    const captionText = document.getElementById("lightbox-caption");
+    
+    // Find the car title (h3) within the same card as the image
+    const card = imgElement.closest('.car-card');
+    const title = card.querySelector('h3').innerText;
+
+    lightbox.style.display = "block";
+    zoomedImg.src = imgElement.src;
+    captionText.innerHTML = title;
+}
+
+function closeLightbox() {
+    document.getElementById("image-lightbox").style.display = "none";
+}
+
+// Close zoom when 'Escape' key is pressed
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") closeLightbox();
+});
+
+/**
+ * Cart Logic
  */
 function handleCartClick(btnId, name, price, status) {
     if (status === 'sold') {
@@ -41,9 +65,6 @@ function handleCartClick(btnId, name, price, status) {
     addToCart(name, price, btnId);
 }
 
-/**
- * Adds a car to the cart array with quantity logic
- */
 function addToCart(name, price, btnId) {
     const existingItem = cart.find(item => item.name === name);
 
@@ -56,16 +77,12 @@ function addToCart(name, price, btnId) {
     updateButtonCounter(btnId, name);
     updateCartUI();
     
-    // Automatically open drawer on first add
     const drawer = document.getElementById('cart-drawer');
     if (!drawer.classList.contains('open')) {
         drawer.classList.add('open');
     }
 }
 
-/**
- * Updates the button on the car card to show "- Qty +"
- */
 function updateButtonCounter(btnId, name) {
     const btn = document.getElementById(btnId);
     const item = cart.find(i => i.name === name);
@@ -81,11 +98,8 @@ function updateButtonCounter(btnId, name) {
     }
 }
 
-/**
- * Handles plus/minus clicks on the button counter
- */
 function changeQty(name, delta, event) {
-    event.stopPropagation(); // Prevents the main button click from firing
+    event.stopPropagation();
     const itemIndex = cart.findIndex(i => i.name === name);
     
     if (itemIndex > -1) {
@@ -102,9 +116,6 @@ function changeQty(name, delta, event) {
     }
 }
 
-/**
- * Refreshes the cart drawer UI
- */
 function updateCartUI() {
     const cartItemsList = document.getElementById('cart-items');
     const cartCount = document.getElementById('cart-count');
@@ -134,9 +145,6 @@ function updateCartUI() {
     cartTotal.innerText = "₹" + total.toLocaleString('en-IN');
 }
 
-/**
- * Removes item completely from cart and resets card button
- */
 function removeFromCart(index) {
     const btnId = cart[index].btnId;
     cart.splice(index, 1);
@@ -144,16 +152,13 @@ function removeFromCart(index) {
     updateCartUI();
 }
 
-/**
- * Sends the order with quantities to WhatsApp
- */
 function checkoutWhatsApp() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
 
-    let message = "🔥 *New Order from The Diecase Network* 🔥%0A%0A";
+    let message = "🔥 *New Order from The Diecast Network* 🔥%0A%0A";
     message += "I am interested in buying the following:%0A";
     
     cart.forEach((item, index) => {
