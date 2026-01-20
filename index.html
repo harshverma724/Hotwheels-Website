@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
     <title>The Diecast Network</title>
     <link rel="icon" type="assets/icon.ico" href="assets/icon.ico">
     <link rel="stylesheet" href="style.css">
@@ -41,7 +41,7 @@
         <div id="cart-drawer" class="cart-drawer">
             <div class="cart-header">
                 <h2>Your Garage Cart</h2>
-                <button onclick="toggleCart()">Close ×</button>
+                <button onclick="toggleCart()">Close</button>
             </div>
             <div id="cart-items"></div>
             <div class="cart-footer">
@@ -52,50 +52,75 @@
     </header>
 
     <main class="container" id="carGrid">
+
         <div class="car-card available">
+            <span class="discount-badge">-22%</span>
+            <a href="product.html?id=hw-pantone" style="text-decoration: none; color: inherit;">
+                <div class="card-header">
+                    <h3>Hot Wheels SILVER SERIES | PANTONE</h3>
+                    <span class="status-tag">Available</span>
+                </div>
+                <img src="assets/car-photos/Hot-Wheels-Pantone.jpg" alt="HW Pantone" class="car-image" >
+                <h4>Hot Wheels SILVER SERIES | PANTONE | Complete Set | 1-6/6 | 2026</h4>
+                <p class="description">The Hot Wheels 2026 Pantone Silver Series is a unique, design-forward collection that bridges the worlds of automotive culture and graphic design.</p>
+            </a>
+            <div class="price-container">
+                <div class="price-labels">
+                    <p class="price">₹ 2,099</p> <span class="old-price">₹ 2,699</span> </div>
+                <button class="add-btn" id="btn-hw-pantone" onclick="handleCartClick('btn-hw-pantone', 'Hot Wheels SILVER SERIES | PANTONE', 2099, 'available')">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="car-card available">
+            <span class="discount-badge">-50%</span>
             <a href="product.html?id=tokyo-drift" style="text-decoration: none; color: inherit;">
                 <div class="card-header">
                     <h3>Fast And Furious TOKYO DRIFT</h3>
                     <span class="status-tag">Available</span>
                 </div>
-                <img src="assets/car-photos/Tokyo Drift.jpeg" alt="Tokyo Drift" class="car-image">
-                <h4>Hot Wheels SILVER SERIES | Fast And Furious TOKYO DRIFT | 1970 Monte Carlo | 3/5 | HNR88</h4>
+                <img src="assets/car-photos/Tokyo Drift.jpeg" alt="Tokyo Drift" class="car-image" >
+                <h4>Hot Wheels SILVER SERIES | Fast And Furious TOKYO DRIFT | 1970 Monte Carlo | 3/5</h4>
                 <p class="description">Classic V8 street brawler from the opening scene of Tokyo Drift.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 1699</p>
+                <div class="price-labels">
+                    <p class="price">₹ 1,699</p> <span class="old-price">₹ 3,398</span> </div>
                 <button class="add-btn" id="btn-tokyo-drift" onclick="handleCartClick('btn-tokyo-drift', 'Fast And Furious TOKYO DRIFT', 1699, 'available')">Add to Cart</button>
             </div>
         </div>
 
         <div class="car-card available">
+            <span class="discount-badge">-28%</span>
             <a href="product.html?id=nissan-350z" style="text-decoration: none; color: inherit;">
                 <div class="card-header">
                     <h3>Hot Wheels NISSAN 350Z CUSTOM</h3>
                     <span class="status-tag">Available</span>
                 </div>
-                <img src="assets/car-photos/NISSAN 350Z CUSTOM PERSONNALISE.jpeg" alt="NISSAN 350Z CUSTOM" class="car-image">
-                <h4>Hot Wheels SILVER SERIES | Fast & Furious TOKYO DRIFT | Nissan 350Z Custom | 1/5 | HNR88</h4>
-                <p class="description">Driven by the 'Drift King' in Tokyo Drift, featuring the iconic VeilSide Version 3 widebody kit.</p>
+                <img src="assets/car-photos/NISSAN 350Z CUSTOM PERSONNALISE.jpeg" alt="NISSAN 350Z" class="car-image" >
+                <h4>Hot Wheels SILVER SERIES | Nissan 350Z Custom | 1/5</h4>
+                <p class="description">Driven by the 'Drift King' in Tokyo Drift, featuring the iconic VeilSide kit.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 429</p>
+                <div class="price-labels">
+                    <p class="price">₹ 429</p> <span class="old-price">₹ 599</span> </div>
                 <button class="add-btn" id="btn-nissan-350z" onclick="handleCartClick('btn-nissan-350z', 'Hot Wheels NISSAN 350Z CUSTOM', 429, 'available')">Add to Cart</button>
             </div>
         </div>
 
         <div class="car-card available">
+            <span class="discount-badge">-30%</span>
             <a href="product.html?id=mazda-rx7" style="text-decoration: none; color: inherit;">
                 <div class="card-header">
                     <h3>Hot Wheels Mazda RX-7</h3>
                     <span class="status-tag">Available</span>
                 </div>
-                <img src="assets/car-photos/Mazda RX7.jpeg" alt="Mazda RX7" class="car-image">
-                <h4>Hot Wheels HW J-IMPORTS | 2026 MAINLINE | Mazda RX-7 | 2/10 | 61/250</h4>
-                <p class="description">Metalflake Purple Mazda RX-7 sporting a vibrant 'Spring' livery with unique rabbit graphics.</p>
+                <img src="assets/car-photos/Mazda RX7.jpeg" alt="Mazda RX7" class="car-image" >
+                <h4>Hot Wheels HW J-IMPORTS | 2026 MAINLINE | Mazda RX-7</h4>
+                <p class="description">Metalflake Purple Mazda RX-7 sporting a vibrant 'Spring' livery.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 279</p>
+                <div class="price-labels">
+                    <p class="price">₹ 279</p> <span class="old-price">₹ 399</span> </div>
                 <button class="add-btn" id="btn-mazda-rx7" onclick="handleCartClick('btn-mazda-rx7', 'Hot Wheels Mazda RX-7', 279, 'available')">Add to Cart</button>
             </div>
         </div>
@@ -106,28 +131,31 @@
                     <h3>Hot Wheels Ford RS200 STH</h3>
                     <span class="status-tag">Sold</span>
                 </div>
-                <img src="assets/car-photos/FordRS200 Super.jpg" alt="FordRS200 Super" class="car-image">
-                <h4>Hot Wheels SUPER TREASURE HUNT | HW PEAK PURSUIT | Ford RS200</h4>
+                <img src="assets/car-photos/FordRS200 Super.jpg" alt="FordRS200 Super" class="car-image" >
+                <h4>Hot Wheels SUPER TREASURE HUNT | HW PEAK PURSUIT</h4>
                 <p class="description">Iconic Gulf Racing livery with Spectraflame paint.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 2999</p>
+                <div class="price-labels">
+                    <p class="price">₹ 2,999</p> <span class="old-price">₹ 4,999</span> </div>
                 <button class="add-btn disabled" id="btn-ford-sth" onclick="handleCartClick('btn-ford-sth', 'Hot Wheels Ford RS200 Super Treasure Hunt', 2999, 'sold')">Sold</button>
             </div>
         </div>
 
         <div class="car-card available">
+            <span class="discount-badge">-20%</span>
             <a href="product.html?id=ford-rs200-main" style="text-decoration: none; color: inherit;">
                 <div class="card-header">
                     <h3>Hot Wheels Ford RS200</h3>
                     <span class="status-tag">Available</span>
                 </div>
-                <img src="assets/car-photos/Ford RS200.jpeg" alt="FordRS200" class="car-image">
-                <h4>Hot Wheels HW PEAK PURSUIT | 2025 MAINLINE | Ford RS200 | 9/10 | 247/250</h4>
-                <p class="description">The Hot Wheels Ford RS200 in "Gulf Blue", reproducing the Group B rally legend.</p>
+                <img src="assets/car-photos/Ford RS200.jpeg" alt="FordRS200" class="car-image" >
+                <h4>Hot Wheels HW PEAK PURSUIT | 2025 MAINLINE | Ford RS200</h4>
+                <p class="description">The Hot Wheels Ford RS200 in "Gulf Blue", reproducing the Group B legend.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 279</p>
+                <div class="price-labels">
+                    <p class="price">₹ 279</p> <span class="old-price">₹ 349</span> </div>
                 <button class="add-btn" id="btn-ford-main" onclick="handleCartClick('btn-ford-main', 'Hot Wheels Ford RS200', 279, 'available')">Add to Cart</button>
             </div>
         </div>
@@ -138,12 +166,13 @@
                     <h3>Hot Wheels Ferrari SF90 Stradale</h3>
                     <span class="status-tag">Sold</span>
                 </div>
-                <img src="assets/car-photos/Ferrari sf90 grey.jpg" alt="Ferrari sf90 grey" class="car-image">
-                <h4>Hot Wheels HW EXOTICS | Ferrari SF90 Stradale | 1/5</h4>
-                <p class="description">Faithfully replicates Ferrari's first series-production Plug-in Hybrid Electric Vehicle (PHEV).</p>
+                <img src="assets/car-photos/Ferrari sf90 grey.jpg" alt="Ferrari sf90 grey" class="car-image" >
+                <h4>Hot Wheels HW EXOTICS | Ferrari SF90 Stradale</h4>
+                <p class="description">Faithfully replicates Ferrari's first series-production PHEV.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 399</p>
+                <div class="price-labels">
+                    <p class="price">₹ 399</p> <span class="old-price">₹ 599</span> </div>
                 <button class="add-btn disabled" id="btn-ferrari-sf90" onclick="handleCartClick('btn-ferrari-sf90', 'Ferrari SF90 Stradale', 399, 'sold')">Sold</button>
             </div>
         </div>
@@ -154,12 +183,13 @@
                     <h3>Hot Wheels Bugatti Bolide</h3>
                     <span class="status-tag">Sold</span>
                 </div>
-                <img src="assets/car-photos/Bugatti Bolide.jpg" alt="Bugatti Bolide" class="car-image">
-                <h4>Hot Wheels HW EXOTICS | Bugatti Bolide | 3/10</h4>
-                <p class="description">Capturing the ultimate W16 track-only hypercar with radical aerodynamics.</p>
+                <img src="assets/car-photos/Bugatti Bolide.jpg" alt="Bugatti Bolide" class="car-image" >
+                <h4>Hot Wheels HW EXOTICS | Bugatti Bolide</h4>
+                <p class="description">Capturing the ultimate W16 track-only hypercar.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 649</p>
+                <div class="price-labels">
+                    <p class="price">₹ 649</p> <span class="old-price">₹ 999</span> </div>
                 <button class="add-btn disabled" id="btn-bugatti-bolide" onclick="handleCartClick('btn-bugatti-bolide', 'Hot Wheels Bugatti Bolide', 649, 'sold')">Sold</button>
             </div>
         </div>
@@ -170,63 +200,71 @@
                     <h3>Hot Wheels McLaren F1</h3>
                     <span class="status-tag">Sold</span>
                 </div>
-                <img src="assets/car-photos/Mclaren F1.jpg" alt="Mclaren F1" class="car-image">
-                <h4>Hot Wheels HW: THE '90s | McLaren F1 | 9/10</h4>
+                <img src="assets/car-photos/Mclaren F1.jpg" alt="Mclaren F1" class="car-image" >
+                <h4>Hot Wheels HW: THE '90s | McLaren F1</h4>
                 <p class="description">Finished in Grand Prix Red, honoring the ultimate 1990s hypercar.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 449</p>
+                <div class="price-labels">
+                    <p class="price">₹ 449</p> <span class="old-price">₹ 699</span> </div>
                 <button class="add-btn disabled" id="btn-mclaren-f1" onclick="handleCartClick('btn-mclaren-f1', 'Hot Wheels McLaren F1', 449, 'sold')">Sold</button>
             </div>
         </div>
 
         <div class="car-card available">
+            <span class="discount-badge">-25%</span>
             <a href="product.html?id=ferrari-daytona" style="text-decoration: none; color: inherit;">
                 <div class="card-header">
                     <h3>Bburago FERRARI DAYTONA SP3</h3>
                     <span class="status-tag">Available</span>
                 </div>
-                <img src="assets/car-photos/Bburago FERRARI DAYTONA SP3.jpg" alt="Bburago FERRARI DAYTONA" class="car-image">
-                <h4>Bburago FERRARI | RACE & PLAY | Ferrari Daytona SP3 | Icona Series</h4>
+                <img src="assets/car-photos/Bburago FERRARI DAYTONA SP3.jpg" alt="Bburago FERRARI" class="car-image" >
+                <h4>Bburago FERRARI | Icona Series</h4>
                 <p class="description">Captures the breathtaking design of Ferrari's ultra-exclusive "Icona" series.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 599</p>
+                <div class="price-labels">
+                    <p class="price">₹ 599</p> <span class="old-price">₹ 799</span> </div>
                 <button class="add-btn" id="btn-ferrari-daytona" onclick="handleCartClick('btn-ferrari-daytona', 'Bburago FERRARI DAYTONA SP3', 599, 'available')">Add to Cart</button>
             </div>
         </div>
 
         <div class="car-card available">
+            <span class="discount-badge">-33%</span>
             <a href="product.html?id=koenigsegg-ccxr" style="text-decoration: none; color: inherit;">
                 <div class="card-header">
                     <h3>Hot Wheels Koenigsegg CCXR</h3>
                     <span class="status-tag">Available</span>
                 </div>
-                <img src="assets/car-photos/Koenigsegg CCXR.jpg" alt="Koenigsegg CCXR" class="car-image">
-                <h4>Hot Wheels PREMIUM | Fast & Furious | Koenigsegg CCXR | 3/5</h4>
+                <img src="assets/car-photos/Koenigsegg CCXR.jpg" alt="Koenigsegg CCXR" class="car-image" >
+                <h4>Hot Wheels PREMIUM | Fast & Furious</h4>
                 <p class="description">The Koenigsegg CCXR brings the multi-million dollar exotic flair from Fast Five.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 799</p>
+                <div class="price-labels">
+                    <p class="price">₹ 799</p> <span class="old-price">₹ 1,199</span> </div>
                 <button class="add-btn" id="btn-koenigsegg-ccxr" onclick="handleCartClick('btn-koenigsegg-ccxr', 'Hot Wheels PREMIUM Koenigsegg CCXR', 799, 'available')">Add to Cart</button>
             </div>
         </div>
 
         <div class="car-card available">
+            <span class="discount-badge">-17%</span>
             <a href="product.html?id=vw-bumblebee" style="text-decoration: none; color: inherit;">
                 <div class="card-header">
                     <h3>Hot Wheels VW Beetle (Bumblebee)</h3>
                     <span class="status-tag">Available</span>
                 </div>
-                <img src="assets/car-photos/Bumble Bee.jpg" alt="Volkswagen Beetle" class="car-image">
-                <h4>Hot Wheels HW SCREEN TIME | TRANSFORMERS | VW Beetle</h4>
+                <img src="assets/car-photos/Bumble Bee.jpg" alt="VW Bumblebee" class="car-image" >
+                <h4>Hot Wheels HW SCREEN TIME | TRANSFORMERS</h4>
                 <p class="description">The Volkswagen Beetle "Bumblebee" brings the beloved Autobot scout to the 1:64 scale world.</p>
             </a>
             <div class="price-container">
-                <p class="price">₹ 289</p>
+                <div class="price-labels">
+                    <p class="price">₹ 289</p> <span class="old-price">₹ 349</span> </div>
                 <button class="add-btn" id="btn-vw-bumblebee" onclick="handleCartClick('btn-vw-bumblebee', 'Hot Wheels Volkswagen Beetle (Bumblebee)', 289, 'available')">Add to Cart</button>
             </div>
         </div>
+
     </main>
 
     <div id="image-lightbox" class="lightbox" onclick="closeLightbox()">
@@ -239,7 +277,6 @@
 
     <script src="script.js"></script>
     <script>
-        // Simple script for Back to Top button
         window.onscroll = function() {
             let btn = document.getElementById("backToTop");
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
