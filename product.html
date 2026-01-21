@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
     <title>Product Details | The Diecast Network</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -25,7 +25,7 @@
         <div id="cart-drawer" class="cart-drawer">
             <div class="cart-header">
                 <h2>Your Garage Cart</h2>
-                <button onclick="toggleCart()">Close ×</button>
+                <button onclick="toggleCart()">Close</button>
             </div>
             <div id="cart-items"></div>
             <div class="cart-footer">
@@ -39,6 +39,8 @@
         <div class="product-layout">
             <div class="product-image-box">
                 <img id="main-product-img" src="" alt="" onclick="openLightbox(this)">
+                
+                <div id="thumbnail-container" class="thumbnail-container"></div>
             </div>
 
             <div class="product-info-box">
