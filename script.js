@@ -1,12 +1,30 @@
 // 1. COMPLETE CAR DATABASE
 const carDatabase = {
+
+    "hw-ferrari-team": {
+        name: "Hot Wheels PREMIUM | TEAM TRANSPORT | Ferrari 250 GTO",
+        series: "Hot Wheels PREMIUM | TEAM TRANSPORT | Ferrari 250 GTO / Fiat 642 RN2 Bartoletti | FLF56",
+        price: 2599,
+        mrp: 3599,
+        img: "assets/car-photos/Team Transport Ferrari/WhatsApp Image 2026-01-21 at 3.26.13 PM.jpeg",
+        // Multiple Images
+        images: [
+            "assets/car-photos/Team Transport Ferrari/WhatsApp Image 2026-01-21 at 3.26.13 PM.jpeg",
+            "assets/car-photos/Team Transport Ferrari/WhatsApp Image 2026-01-21 at 3.26.13 PM (3).jpeg",
+            "assets/car-photos/Team Transport Ferrari/WhatsApp Image 2026-01-21 at 3.26.13 PM (1).jpeg",
+            "assets/car-photos/Team Transport Ferrari/WhatsApp Image 2026-01-21 at 3.26.12 PM.jpeg"
+        ],
+        desc: "This premium Team Transport set is a historic tribute to Scuderia Ferrari's golden era. It features the legendary Fiat 642 RN2 Bartoletti transporter, the famous hauler used by the Ferrari factory team in the 1960s. It carries the iconic Ferrari 250 GTO (Race #22), finished in classic Rosso Corsa with authentic sponsor decals.",
+        status: "available"
+    },
+
     "hw-pantone": {
         name: "Hot Wheels SILVER SERIES | PANTONE",
         series: "Hot Wheels SILVER SERIES | PANTONE | Complete Set | 1-6/6 | 2026",
         price: 2099,
         mrp: 2699,
         img: "assets/car-photos/Hot-Wheels-Pantone.jpg",
-        desc: "The Hot Wheels 2026 Pantone Silver Series is a unique, design-forward collection that bridges the worlds of automotive culture and graphic design. Consisting of six vehicles, each casting is finished in a distinct, solid hue corresponding to a specific Pantone Matching System (PMS) code, ranging from the deep 'Vibrant Blue'of the Nissan Fairlady Z to the bright 'Pantone Orange' of the Kool Kombi. The minimalist livery features only the car's body color and the 'PANTONE' logo with its specific color code, turning iconic machines like the '69 Mustang Boss 302 and the Porsche 934.5 into rolling color swatches that celebrate the pure aesthetic of the casting itself.",
+        desc: "The Hot Wheels 2026 Pantone Silver Series is a unique, design-forward collection that bridges the worlds of automotive culture and graphic design.",
         status: "available"
     },
 
@@ -28,6 +46,23 @@ const carDatabase = {
         desc: "Driven by the 'Drift King' in Tokyo Drift, this Nissan 350Z Custom features the iconic VeilSide Version 3 widebody kit, high rear wing, and detailed dark finish.",
         status: "available"
     },
+    "hw-spiderman": {
+        name: "Hot Wheels SILVER SERIES | MARVEL SPIDER-MAN",
+        series: "Hot Wheels SILVER SERIES | MARVEL SPIDER-MAN | Complete Set | 1-6/6 | 2026",
+        price: 1495,
+        mrp: 2599,
+        img: "assets/car-photos/Spiderman/WhatsApp Image 2026-01-21 at 3.26.16 PM.jpeg",
+        images: [
+            "assets/car-photos/Spiderman/WhatsApp Image 2026-01-21 at 3.26.16 PM.jpeg",
+            "assets/car-photos/Spiderman/WhatsApp Image 2026-01-21 at 3.26.16 PM (1).jpeg",
+            "assets/car-photos/Spiderman/WhatsApp Image 2026-01-21 at 3.26.15 PM.jpeg",
+            "assets/car-photos/Spiderman/WhatsApp Image 2026-01-21 at 3.26.15 PM (2).jpeg",
+            "assets/car-photos/Spiderman/WhatsApp Image 2026-01-21 at 3.26.16 PM (2).jpeg",
+            "assets/car-photos/Spiderman/WhatsApp Image 2026-01-21 at 3.26.15 PM (1).jpeg",
+        ],
+        desc: "Swing into action with the Marvel Spider-Man Silver Series, a collection of five character-themed vehicles featuring exclusive comic-style card art.",
+        status: "available"
+    },
     "mazda-rx7": {
         name: "Hot Wheels Mazda RX-7",
         series: "Hot Wheels HW J-IMPORTS | 2026 MAINLINE | 2/10",
@@ -35,7 +70,7 @@ const carDatabase = {
         mrp: 399,
         img: "assets/car-photos/Mazda RX7.jpeg",
         desc: "Part of the 2026 HW J-Imports series, this Metalflake Purple Mazda RX-7 sports a vibrant 'Spring' livery with unique rabbit graphics.",
-        status: "available"
+        status: "sold"
     },
     "ford-rs200-sth": {
         name: "Hot Wheels Ford RS200 Super Treasure Hunt",
@@ -127,12 +162,12 @@ function loadProductPage(id) {
     const car = carDatabase[id];
     if (!car) return;
 
-    // --- NEW: Calculate Discount ---
+    // --- Price & Discount Logic ---
     let priceHTML = `₹${car.price.toLocaleString('en-IN')}`;
+    
     if (car.mrp && car.mrp > car.price) {
         const discount = Math.round(((car.mrp - car.price) / car.mrp) * 100);
         
-        // Price HTML: Selling Price (Black) + MRP (Crossed) Vertical Stack
         priceHTML = `
             <div style="display:flex; flex-direction:column; align-items:flex-start;">
                 <span style="color: #000000; font-weight:bold; font-size: 2rem;">₹${car.price.toLocaleString('en-IN')}</span>
@@ -140,7 +175,6 @@ function loadProductPage(id) {
             </div>
         `;
         
-        // Add Discount Badge dynamically
         const imgBox = document.querySelector('.product-image-box');
         const oldBadge = imgBox.querySelector('.discount-badge');
         if(oldBadge) oldBadge.remove();
@@ -154,14 +188,41 @@ function loadProductPage(id) {
         imgBox.appendChild(badge);
     }
 
+    // --- Fill Data ---
     const titleEl = document.getElementById('product-title');
     if (titleEl) {
         titleEl.innerText = car.name;
         document.getElementById('product-series').innerText = car.series;
         document.getElementById('product-price').innerHTML = priceHTML;
         document.getElementById('product-desc').innerText = car.desc;
-        document.getElementById('main-product-img').src = car.img;
+        
+        // --- Gallery Logic ---
+        const mainImg = document.getElementById('main-product-img');
+        const thumbContainer = document.getElementById('thumbnail-container');
+        
+        if (car.images && car.images.length > 0) {
+            mainImg.src = car.images[0];
+            thumbContainer.innerHTML = ''; 
 
+            car.images.forEach((imgSrc, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.className = 'thumbnail';
+                if (index === 0) thumb.classList.add('active');
+                
+                thumb.onclick = function() {
+                    mainImg.src = imgSrc;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                };
+                thumbContainer.appendChild(thumb);
+            });
+        } else {
+            mainImg.src = car.img;
+            thumbContainer.innerHTML = '';
+        }
+
+        // --- Button Logic (Using ID) ---
         const buyBtn = document.getElementById('product-buy-btn');
         if (buyBtn) {
             buyBtn.onclick = null;
@@ -174,39 +235,52 @@ function loadProductPage(id) {
                 buyBtn.innerText = "Add to Cart";
                 buyBtn.classList.remove('disabled');
                 buyBtn.onclick = function() {
-                    handleCartClick('product-buy-btn', car.name, car.price, car.status);
+                    handleCartClick('product-buy-btn', id); // Pass ID only
                 };
             }
 
-            const existingItem = cart.find(item => item.name === car.name);
+            const existingItem = cart.find(item => item.id === id); // Check by ID
             if (existingItem) {
-                updateButtonCounter('product-buy-btn', car.name);
+                updateButtonCounter('product-buy-btn', id);
             }
         }
     }
 }
 
-// --- CART STATE ---
+// --- CART STATE & FUNCTIONS (Updated for IDs) ---
 let cart = [];
 
-function handleCartClick(btnId, name, price, status) {
-    if (status === 'sold') {
+// NEW: handleCartClick now accepts (btnId, id)
+function handleCartClick(btnId, id) {
+    const car = carDatabase[id];
+    if (!car) return;
+
+    if (car.status === 'sold') {
         alert("This item is currently sold out!");
         return;
     }
-    addToCart(name, price, btnId);
+    // We look up details from DB, so we don't need to pass them in HTML
+    addToCart(id, btnId);
 }
 
-function addToCart(name, price, btnId) {
-    const existingItem = cart.find(item => item.name === name);
+function addToCart(id, btnId) {
+    const car = carDatabase[id];
+    // CHECK BY ID (Fixes the duplicate bug)
+    const existingItem = cart.find(item => item.id === id);
 
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({ name, price, quantity: 1, btnId: btnId });
+        cart.push({ 
+            id: id, 
+            name: car.name, 
+            price: car.price, 
+            quantity: 1, 
+            btnId: btnId 
+        });
     }
 
-    updateButtonCounter(btnId, name);
+    updateButtonCounter(btnId, id);
     updateCartUI();
     saveCart(); 
     
@@ -216,26 +290,26 @@ function addToCart(name, price, btnId) {
     }
 }
 
-function updateButtonCounter(btnId, name) {
+function updateButtonCounter(btnId, id) {
     const btn = document.getElementById(btnId);
     if (!btn) return;
 
-    const item = cart.find(i => i.name === name);
+    const item = cart.find(i => i.id === id); // Find by ID
     
     if (item && item.quantity > 0) {
         btn.innerHTML = `
-            <span onclick="changeQty('${name}', -1, event)" style="padding: 0 15px; cursor: pointer; font-size: 1.2rem;">−</span>
+            <span onclick="changeQty('${id}', -1, event)" style="padding: 0 15px; cursor: pointer; font-size: 1.2rem;">−</span>
             ${item.quantity}
-            <span onclick="changeQty('${name}', 1, event)" style="padding: 0 15px; cursor: pointer; font-size: 1.2rem;">+</span>
+            <span onclick="changeQty('${id}', 1, event)" style="padding: 0 15px; cursor: pointer; font-size: 1.2rem;">+</span>
         `;
     } else {
         btn.innerHTML = "Add to Cart";
     }
 }
 
-function changeQty(name, delta, event) {
+function changeQty(id, delta, event) {
     event.stopPropagation();
-    const itemIndex = cart.findIndex(i => i.name === name);
+    const itemIndex = cart.findIndex(i => i.id === id); // Find by ID
     
     if (itemIndex > -1) {
         cart[itemIndex].quantity += delta;
@@ -250,8 +324,8 @@ function changeQty(name, delta, event) {
             const productBtn = document.getElementById('product-buy-btn');
             if(productBtn) productBtn.innerHTML = "Add to Cart";
         } else {
-            if (btnId) updateButtonCounter(btnId, name);
-            updateButtonCounter('product-buy-btn', name);
+            if (btnId) updateButtonCounter(btnId, id);
+            updateButtonCounter('product-buy-btn', id);
         }
         updateCartUI();
         saveCart();
@@ -337,9 +411,10 @@ function loadCart() {
     if (savedCart) {
         cart = JSON.parse(savedCart);
         updateCartUI();
+        // Update Main Page buttons
         cart.forEach(item => {
             if (item.btnId && item.btnId !== 'product-buy-btn') {
-                updateButtonCounter(item.btnId, item.name);
+                updateButtonCounter(item.btnId, item.id); // Pass ID
             }
         });
     }
