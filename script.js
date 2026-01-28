@@ -78,7 +78,7 @@ const carDatabase = {
         mrp: 2699,
         img: "assets/car-photos/Hot-Wheels-Pantone.jpg",
         desc: "The Hot Wheels 2026 Pantone Silver Series is a unique, design-forward collection that bridges the worlds of automotive culture and graphic design.",
-        status: "available"
+        status: "sold"
     },
 
     "tokyo-drift": {
@@ -537,4 +537,5 @@ function closeLightbox() {
 
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") closeLightbox();
+
 });
